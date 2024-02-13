@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		7BA797822B7B630B00C8FA48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797812B7B630B00C8FA48 /* AppDelegate.swift */; };
 		7BA797842B7B630B00C8FA48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797832B7B630B00C8FA48 /* SceneDelegate.swift */; };
-		7BA797862B7B630B00C8FA48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797852B7B630B00C8FA48 /* ViewController.swift */; };
+		7BA797862B7B630B00C8FA48 /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797852B7B630B00C8FA48 /* TasksListViewController.swift */; };
 		7BA797892B7B630B00C8FA48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BA797872B7B630B00C8FA48 /* Main.storyboard */; };
 		7BA7978B2B7B630D00C8FA48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA7978A2B7B630D00C8FA48 /* Assets.xcassets */; };
 		7BA7978E2B7B630D00C8FA48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BA7978C2B7B630D00C8FA48 /* LaunchScreen.storyboard */; };
 		7BA797992B7B630D00C8FA48 /* TaskifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797982B7B630D00C8FA48 /* TaskifyTests.swift */; };
 		7BA797A32B7B630D00C8FA48 /* TaskifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797A22B7B630D00C8FA48 /* TaskifyUITests.swift */; };
 		7BA797A52B7B630D00C8FA48 /* TaskifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797A42B7B630D00C8FA48 /* TaskifyUITestsLaunchTests.swift */; };
+		7BA797B42B7B6DAB00C8FA48 /* TasksListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797B32B7B6DAB00C8FA48 /* TasksListPresenter.swift */; };
+		7BA797B62B7B6DB500C8FA48 /* TasksListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797B52B7B6DB500C8FA48 /* TasksListModel.swift */; };
+		7BA797B92B7B70AC00C8FA48 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797B82B7B70AC00C8FA48 /* ErrorMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,7 @@
 		7BA7977E2B7B630B00C8FA48 /* Taskify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA797812B7B630B00C8FA48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BA797832B7B630B00C8FA48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7BA797852B7B630B00C8FA48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7BA797852B7B630B00C8FA48 /* TasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewController.swift; sourceTree = "<group>"; };
 		7BA797882B7B630B00C8FA48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BA7978A2B7B630D00C8FA48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BA7978D2B7B630D00C8FA48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +52,9 @@
 		7BA7979E2B7B630D00C8FA48 /* TaskifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA797A22B7B630D00C8FA48 /* TaskifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskifyUITests.swift; sourceTree = "<group>"; };
 		7BA797A42B7B630D00C8FA48 /* TaskifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7BA797B32B7B6DAB00C8FA48 /* TasksListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListPresenter.swift; sourceTree = "<group>"; };
+		7BA797B52B7B6DB500C8FA48 /* TasksListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListModel.swift; sourceTree = "<group>"; };
+		7BA797B82B7B70AC00C8FA48 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +105,9 @@
 		7BA797802B7B630B00C8FA48 /* Taskify */ = {
 			isa = PBXGroup;
 			children = (
-				7BA797812B7B630B00C8FA48 /* AppDelegate.swift */,
-				7BA797832B7B630B00C8FA48 /* SceneDelegate.swift */,
-				7BA797852B7B630B00C8FA48 /* ViewController.swift */,
+				7BA797B72B7B709700C8FA48 /* Extensions */,
+				7BA797B22B7B6D5700C8FA48 /* List */,
+				7BA797B12B7B6D4500C8FA48 /* App */,
 				7BA797872B7B630B00C8FA48 /* Main.storyboard */,
 				7BA7978A2B7B630D00C8FA48 /* Assets.xcassets */,
 				7BA7978C2B7B630D00C8FA48 /* LaunchScreen.storyboard */,
@@ -125,6 +131,33 @@
 				7BA797A42B7B630D00C8FA48 /* TaskifyUITestsLaunchTests.swift */,
 			);
 			path = TaskifyUITests;
+			sourceTree = "<group>";
+		};
+		7BA797B12B7B6D4500C8FA48 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7BA797832B7B630B00C8FA48 /* SceneDelegate.swift */,
+				7BA797812B7B630B00C8FA48 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7BA797B22B7B6D5700C8FA48 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				7BA797852B7B630B00C8FA48 /* TasksListViewController.swift */,
+				7BA797B32B7B6DAB00C8FA48 /* TasksListPresenter.swift */,
+				7BA797B52B7B6DB500C8FA48 /* TasksListModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		7BA797B72B7B709700C8FA48 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7BA797B82B7B70AC00C8FA48 /* ErrorMessage.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +291,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BA797862B7B630B00C8FA48 /* ViewController.swift in Sources */,
+				7BA797862B7B630B00C8FA48 /* TasksListViewController.swift in Sources */,
 				7BA797822B7B630B00C8FA48 /* AppDelegate.swift in Sources */,
+				7BA797B42B7B6DAB00C8FA48 /* TasksListPresenter.swift in Sources */,
 				7BA797842B7B630B00C8FA48 /* SceneDelegate.swift in Sources */,
+				7BA797B92B7B70AC00C8FA48 /* ErrorMessage.swift in Sources */,
+				7BA797B62B7B6DB500C8FA48 /* TasksListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
