@@ -9,9 +9,11 @@ import Foundation
 protocol TasksListPresenter {
     func bind(displayer: TasksListDisplayer)
     func onViewDidLoad()
+    var delegate: TasksListDelegate? { get set }
 }
 
 class TasksListsPresenterImpl: TasksListPresenter {
+    weak var delegate: TasksListDelegate?
     weak var displayer: TasksListDisplayer?
     
     func bind(displayer: TasksListDisplayer) {
