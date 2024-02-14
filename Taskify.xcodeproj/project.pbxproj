@@ -20,6 +20,10 @@
 		7BA797B62B7B6DB500C8FA48 /* TasksListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797B52B7B6DB500C8FA48 /* TasksListModel.swift */; };
 		7BA797B92B7B70AC00C8FA48 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797B82B7B70AC00C8FA48 /* ErrorMessage.swift */; };
 		7BA797BB2B7C0C9100C8FA48 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797BA2B7C0C9100C8FA48 /* TaskTableViewCell.swift */; };
+		7BA797BE2B7CD14900C8FA48 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797BD2B7CD14900C8FA48 /* DetailViewController.swift */; };
+		7BA797C02B7CD15500C8FA48 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797BF2B7CD15500C8FA48 /* DetailPresenter.swift */; };
+		7BA797C22B7CD15F00C8FA48 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797C12B7CD15F00C8FA48 /* DetailModel.swift */; };
+		7BA797C42B7CFBD900C8FA48 /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA797C32B7CFBD900C8FA48 /* StyledButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		7BA797B52B7B6DB500C8FA48 /* TasksListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListModel.swift; sourceTree = "<group>"; };
 		7BA797B82B7B70AC00C8FA48 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		7BA797BA2B7C0C9100C8FA48 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		7BA797BD2B7CD14900C8FA48 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7BA797BF2B7CD15500C8FA48 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		7BA797C12B7CD15F00C8FA48 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		7BA797C32B7CFBD900C8FA48 /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,7 @@
 			children = (
 				7BA797B72B7B709700C8FA48 /* Extensions */,
 				7BA797B22B7B6D5700C8FA48 /* List */,
+				7BA797BC2B7CD13100C8FA48 /* Detail */,
 				7BA797B12B7B6D4500C8FA48 /* App */,
 				7BA797872B7B630B00C8FA48 /* Main.storyboard */,
 				7BA7978A2B7B630D00C8FA48 /* Assets.xcassets */,
@@ -159,8 +168,19 @@
 			children = (
 				7BA797B82B7B70AC00C8FA48 /* ErrorMessage.swift */,
 				7BA797BA2B7C0C9100C8FA48 /* TaskTableViewCell.swift */,
+				7BA797C32B7CFBD900C8FA48 /* StyledButton.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7BA797BC2B7CD13100C8FA48 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				7BA797BD2B7CD14900C8FA48 /* DetailViewController.swift */,
+				7BA797BF2B7CD15500C8FA48 /* DetailPresenter.swift */,
+				7BA797C12B7CD15F00C8FA48 /* DetailModel.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,11 +316,15 @@
 			files = (
 				7BA797862B7B630B00C8FA48 /* TasksListViewController.swift in Sources */,
 				7BA797822B7B630B00C8FA48 /* AppDelegate.swift in Sources */,
+				7BA797C02B7CD15500C8FA48 /* DetailPresenter.swift in Sources */,
+				7BA797C42B7CFBD900C8FA48 /* StyledButton.swift in Sources */,
 				7BA797BB2B7C0C9100C8FA48 /* TaskTableViewCell.swift in Sources */,
 				7BA797B42B7B6DAB00C8FA48 /* TasksListPresenter.swift in Sources */,
 				7BA797842B7B630B00C8FA48 /* SceneDelegate.swift in Sources */,
+				7BA797C22B7CD15F00C8FA48 /* DetailModel.swift in Sources */,
 				7BA797B92B7B70AC00C8FA48 /* ErrorMessage.swift in Sources */,
 				7BA797B62B7B6DB500C8FA48 /* TasksListModel.swift in Sources */,
+				7BA797BE2B7CD14900C8FA48 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

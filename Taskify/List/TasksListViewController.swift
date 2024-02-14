@@ -16,7 +16,7 @@ protocol TasksListDelegate: AnyObject {
     
 }
 
-class TasksListViewController: UIViewController, UITableViewDelegate {
+class TasksListViewController: UIViewController {
     let presenter: TasksListPresenter = TasksListsPresenterImpl()
     var tasks: [Record] = []
     
@@ -70,6 +70,16 @@ extension TasksListViewController: UITableViewDataSource {
     }
 }
 
+extension TasksListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let task = tasks[indexPath.row]
+        let detailViewController = DetailViewController(task: task)
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
 extension TasksListViewController: TasksListDisplayer {
     func showTasks(_ tasks: [Record]) {
         
@@ -79,8 +89,7 @@ extension TasksListViewController: TasksListDisplayer {
             self?.tableView.reloadData()
         }
     }
-    
     func showError(_ error: Error) {
-        print(error)
+        print("Error fetching tasks: \(error)")
     }
 }
