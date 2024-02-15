@@ -9,6 +9,7 @@ import Foundation
 protocol TasksListPresenter {
     func bind(displayer: TasksListDisplayer)
     func onViewDidLoad()
+    func fetchTasks()
     var delegate: TasksListDelegate? { get set }
 }
 
@@ -21,6 +22,10 @@ class TasksListsPresenterImpl: TasksListPresenter {
     }
     
     func onViewDidLoad() {
+        fetchTasks()
+    }
+
+    func fetchTasks() {
         // Construct a URL for the Tasks endpoint
         guard let url = URL(string: "https://api.airtable.com/v0/appJirijcolqzO7W1/To%20do?view=Grid%20view") else {
             let error = NSError(domain: "NetworkErrorDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid server URL"])
@@ -58,12 +63,12 @@ class TasksListsPresenterImpl: TasksListPresenter {
                 decoder.dateDecodingStrategy = .iso8601
                 
                 // to see server response
-//                if let stringData = String(data: data, encoding: .utf8) {
-//                    print(stringData)
-//                } else {
-//                    print("Failed to convert data to UTF-8 string")
-//                }
-            
+                //                if let stringData = String(data: data, encoding: .utf8) {
+                //                    print(stringData)
+                //                } else {
+                //                    print("Failed to convert data to UTF-8 string")
+                //                }
+                
                 let tasksResponse = try decoder.decode(RecordsResponse.self, from: data)
                 let tasks = tasksResponse.records
                 DispatchQueue.main.async {

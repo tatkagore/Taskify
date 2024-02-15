@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct DeletionResponse: Codable {
+    let deleted: Bool
+    let id: String
+}

@@ -8,11 +8,23 @@
 
 import UIKit
 
+protocol DetailDisplayer: AnyObject {
+    func showError(_ error: Error)
+    func taskDeletedSuccessfully()
+}
+protocol DetailDelegate: AnyObject {
+    
+}
+
 class DetailViewController: UIViewController {
+//    let navigationController = UINavigationController()
+    let presenter: DetailPresenter
+    
     var task: Record?
     
-    init(task: Record? = nil) {
+    init(task: Record? = nil, navigationController: UINavigationController) {
         self.task = task
+        self.presenter = DetailPresenterImpl(navigationController: navigationController)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,7 +61,7 @@ class DetailViewController: UIViewController {
     let deleteButton: StyledButton = {
         let button = StyledButton(type: .system)
         button.setTitle("Delete task", for: .normal)
-        button.addTarget(self, action: #selector(deleteButtonTapper), for: .touchUpInside)
+        button.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -65,10 +77,24 @@ class DetailViewController: UIViewController {
             dueDateLabel.text = "Deadline is ⏰: \(task.fields.toDoBefore)"
             priorityLabel.text = "Priority👷🏻‍♀️: \(task.fields.priority)"
         }
+        presenter.bind(displayer: self)
     }
     
-    @objc func deleteButtonTapper() {
-        
+    @objc func deleteButtonTapped() {
+        guard let task = task else {
+            return
+        }
+        presenter.deleteTask(with: task)
+    }
+}
+
+extension DetailViewController: DetailDisplayer {
+    func showError(_ error: Error) {
+        print("Error fetching tasks: \(error)")
+    }
+    
+    func taskDeletedSuccessfully() {
+        print("tesk was deleted")
     }
 }
 

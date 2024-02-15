@@ -31,6 +31,8 @@ class TasksListViewController: UIViewController {
         configureTableView()
         presenter.bind(displayer: self)
         presenter.onViewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshTasks(_:)), name: Notification.Name(rawValue: "refreshTasks"), object: nil)
+
     }
     
     func configureTableView() {
@@ -51,6 +53,11 @@ class TasksListViewController: UIViewController {
     func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    @objc func refreshTasks(_ notification: Notification) {
+        self.presenter.fetchTasks()
+        print(1)
     }
 }
 
@@ -74,7 +81,7 @@ extension TasksListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = tasks[indexPath.row]
-        let detailViewController = DetailViewController(task: task)
+        let detailViewController = DetailViewController(task: task, navigationController: self.navigationController!)
         self.navigationController?.pushViewController(detailViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -84,7 +91,6 @@ extension TasksListViewController: TasksListDisplayer {
     func showTasks(_ tasks: [Record]) {
         
         DispatchQueue.main.async { [weak self] in
-            print("HERE")
             self?.tasks = tasks
             self?.tableView.reloadData()
         }
