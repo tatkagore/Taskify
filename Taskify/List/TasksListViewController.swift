@@ -32,6 +32,8 @@ class TasksListViewController: UIViewController {
         presenter.bind(displayer: self)
         presenter.onViewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(refreshTasks(_:)), name: Notification.Name(rawValue: "refreshTasks"), object: nil)
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTask))
+        navigationItem.rightBarButtonItem = addButton
 
     }
     
@@ -57,13 +59,15 @@ class TasksListViewController: UIViewController {
     
     @objc func refreshTasks(_ notification: Notification) {
         self.presenter.fetchTasks()
-        print(1)
     }
+    @objc func addTask() {
+           let createTaskViewController = CreateTaskViewController(navigationController: self.navigationController!)
+           self.navigationController?.pushViewController(createTaskViewController, animated: true)
+       }
 }
 
 extension TasksListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(tasks.count)
         return tasks.count
     }
     

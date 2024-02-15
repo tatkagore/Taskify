@@ -43,7 +43,6 @@ class TasksListsPresenterImpl: TasksListPresenter {
             guard let self = self else { return }
             
             if let error = error {
-                print(error)
                 DispatchQueue.main.async {
                     self.displayer?.showError(error)
                 }
@@ -73,7 +72,6 @@ class TasksListsPresenterImpl: TasksListPresenter {
                 let tasks = tasksResponse.records
                 DispatchQueue.main.async {
                     self.displayer?.showTasks(tasks)
-                    print(tasks)
                 }
             } catch {
                 print("Unexpected error: \(error).")
