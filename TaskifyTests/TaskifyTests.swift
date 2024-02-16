@@ -8,29 +8,70 @@
 import XCTest
 @testable import Taskify
 
-final class TaskifyTests: XCTestCase {
+class MockTasksListDisplayer: TasksListDisplayer {
+    var showErrorCalled = false
+    var showTasksCalled = false
+    var receivedError: Error?
+    var receivedTasks: [Record]?
 
+    func showTasks( _ tasks: [Record]) {
+        showTasksCalled = true
+        receivedTasks = tasks
+    }
+
+    func showError( _ error: Error) {
+        showErrorCalled = true
+        receivedError = error
+    }
+}
+
+class TasksListsPresenterImplTests: XCTestCase {
+    
+    var presenter: TasksListsPresenterImpl!
+    var mockDisplayer: MockTasksListDisplayer!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        mockDisplayer = MockTasksListDisplayer()
+        presenter = TasksListsPresenterImpl()
+        presenter.bind(displayer: mockDisplayer)
     }
-
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        presenter = nil
+        mockDisplayer = nil
+        super.tearDown()
     }
+    
+    // this test passes when you turn off connection :)
+    func testFetchTasksError() {
+        let expectation = XCTestExpectation(description: "Expect showError to be called on network error")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        presenter.fetchTasks()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            if self.mockDisplayer.showErrorCalled {
+                expectation.fulfill()
+            }
         }
+        
+        wait(for: [expectation], timeout: 10)
+        XCTAssertTrue(mockDisplayer.showErrorCalled, "showError should be called on network error")
     }
+    
+    func testFetchTasksSuccess() {
+        let expectation = XCTestExpectation(description: "Expect showTasks to be called on successful fetch")
 
+        presenter.fetchTasks()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {  // Adjust delay as necessary
+            if self.mockDisplayer.showTasksCalled && self.mockDisplayer.receivedTasks != nil {
+                expectation.fulfill()
+            }
+        }
+        wait(for: [expectation], timeout: 10)  // Adjust timeout as necessary
+        XCTAssertTrue(mockDisplayer.showTasksCalled, "showTasks should be called on successful fetch")
+        XCTAssertNotNil(mockDisplayer.receivedTasks, "Received tasks should not be nil")
+      
+    }
 }
