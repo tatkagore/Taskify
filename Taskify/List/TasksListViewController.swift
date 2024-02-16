@@ -12,9 +12,6 @@ protocol TasksListDisplayer: AnyObject {
     func showError(_ error: Error)
 }
 
-protocol TasksListDelegate: AnyObject {
-    
-}
 
 class TasksListViewController: UIViewController {
     let presenter: TasksListPresenter = TasksListsPresenterImpl()

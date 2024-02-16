@@ -11,12 +11,10 @@ import UIKit
 protocol DetailPresenter {
     func bind(displayer: DetailDisplayer)
     func deleteTask(with task: Record)
-    var delegate: DetailDelegate? { get set }
 }
 
 class DetailPresenterImpl: DetailPresenter {
     let navigationController: UINavigationController
-    weak var delegate: DetailDelegate?
     weak var displayer: DetailDisplayer?
     
     func bind(displayer: DetailDisplayer) {

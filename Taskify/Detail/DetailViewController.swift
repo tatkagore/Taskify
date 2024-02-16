@@ -12,9 +12,6 @@ protocol DetailDisplayer: AnyObject {
     func showError(_ error: Error)
     func taskDeletedSuccessfully()
 }
-protocol DetailDelegate: AnyObject {
-    
-}
 
 class DetailViewController: UIViewController {
 //    let navigationController = UINavigationController()
